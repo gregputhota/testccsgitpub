@@ -1,0 +1,58 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_015Q5YYZS6UDR0coFbAbbtnPtXYrFyMCF6c",
+    "name": "testpython",
+    "title": "testpython",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "testpython",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_015Q5ZX1MZUXJ7EGx4AKOlI9f5elIAU2xT4",
+        "name": "Calculate Date",
+        "title": "Calculate Date",
+        "type": "core.calculate_date",
+        "base_type": "activity",
+        "properties": {
+          "adjustment": "$env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b.env.variable_1BMfMWYx15MVGL1vjWauER9qJ5b$",
+          "continue_on_failure": false,
+          "display_name": "Calculate Date",
+          "original_date": "$workflow.definition_workflow_015Q5YYZS6UDR0coFbAbbtnPtXYrFyMCF6c.output.start_time$"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_015Q5YZ506TJC4CnBZ7mrqG9B1r44XQZ8Qy",
+        "name": "Execute Python Script",
+        "title": "Test Python",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Test Python",
+          "script": "\na = \"$activity.definition_activity_015Q5ZX1MZUXJ7EGx4AKOlI9f5elIAU2xT4.output.result$\"\nprint(a)"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
